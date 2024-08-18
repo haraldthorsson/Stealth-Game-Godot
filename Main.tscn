@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://3ouviaknax55"]
+
+[ext_resource type="PackedScene" uid="uid://bje36scdtl5go" path="res://player.tscn" id="1_75ld5"]
+[ext_resource type="PackedScene" uid="uid://cqrjje2v8wjoa" path="res://testMap.tscn" id="2_v3ke0"]
+[ext_resource type="PackedScene" uid="uid://dbv3677i20gt7" path="res://HUD.tscn" id="3_knnf8"]
+[ext_resource type="Script" path="res://CanvasLayer.gd" id="4_albpr"]
+
+[sub_resource type="Environment" id="Environment_6lhwi"]
+background_mode = 3
+ssr_fade_in = 6.27667e-05
+ssr_fade_out = 10.5561
+ssr_depth_tolerance = 108.01
+sdfgi_bounce_feedback = 0.4
+sdfgi_min_cell_size = 16.0
+sdfgi_cascade0_distance = 1024.0
+sdfgi_max_distance = 16384.0
+glow_enabled = true
+glow_levels/4 = 1.0
+glow_strength = 1.05
+glow_blend_mode = 1
+glow_hdr_luminance_cap = 256.0
+adjustment_brightness = 0.66
+adjustment_contrast = 4.2
+adjustment_saturation = 0.01
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_rl4e1"]
+viewport_path = NodePath("PixelPerfectLayer/SubViewport")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -30.0
+offset_top = -24.0
+offset_right = 791.0
+offset_bottom = 788.0
+color = Color(0.207843, 0.364706, 0.407843, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_75ld5")]
+position = Vector2(358, 360)
+rotation = -1.5708
+
+[node name="TestMap" parent="." instance=ExtResource("2_v3ke0")]
+
+[node name="HUD" parent="." instance=ExtResource("3_knnf8")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6lhwi")
+
+[node name="MainCamera" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="PixelPerfectLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("main_camera", "pp_camera")]
+script = ExtResource("4_albpr")
+main_camera = NodePath("../MainCamera")
+pp_camera = NodePath("SubViewport/PPCamera")
+
+[node name="SubViewport" type="SubViewport" parent="PixelPerfectLayer"]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(190, 190)
+size_2d_override = Vector2i(760, 760)
+size_2d_override_stretch = true
+
+[node name="PPCamera" type="Camera2D" parent="PixelPerfectLayer/SubViewport"]
+anchor_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="PixelPerfectLayer"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_rl4e1")
+
+[node name="ColorRect2" type="ColorRect" parent="." groups=["PP"]]
+offset_left = 274.0
+offset_top = 314.0
+offset_right = 314.0
+offset_bottom = 354.0
+rotation = 0.761219
+
+[node name="ColorRect3" type="ColorRect" parent="." groups=["PP"]]
+offset_left = 144.0
+offset_top = 329.0
+offset_right = 184.0
+offset_bottom = 369.0
+rotation = -0.0200167

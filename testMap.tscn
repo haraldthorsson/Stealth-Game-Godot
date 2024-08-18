@@ -1,0 +1,96 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqrjje2v8wjoa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rppu"]
+size = Vector2(462, 42)
+
+[node name="Node2D" type="Node2D"]
+z_index = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(108, 73)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_right = 462.0
+offset_bottom = 42.0
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(231, 21)
+shape = SubResource("RectangleShape2D_7rppu")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(-13, -24)
+scale = Vector2(1.76, 1)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D3"]
+offset_right = 462.0
+offset_bottom = 42.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(231, 21)
+shape = SubResource("RectangleShape2D_7rppu")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(16, -32)
+rotation = 1.5708
+scale = Vector2(1.76, 1)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D4"]
+offset_right = 462.0
+offset_bottom = 42.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(231, 21)
+shape = SubResource("RectangleShape2D_7rppu")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(618, 641)
+rotation = -1.5708
+
+[node name="ColorRect2" type="ColorRect" parent="StaticBody2D2"]
+offset_right = 462.0
+offset_bottom = 42.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(231, 21)
+shape = SubResource("RectangleShape2D_7rppu")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(-27, 602)
+scale = Vector2(1.76, 1)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D5"]
+offset_right = 462.0
+offset_bottom = 42.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(231, 21)
+shape = SubResource("RectangleShape2D_7rppu")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+position = Vector2(312, 199)
+rotation = -3.14159
+scale = Vector2(0.431949, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="StaticBody2D6"]
+offset_right = 462.0
+offset_bottom = 42.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+position = Vector2(231, 21)
+shape = SubResource("RectangleShape2D_7rppu")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+position = Vector2(782, -24)
+rotation = -4.71239
+scale = Vector2(1.72394, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="StaticBody2D7"]
+offset_right = 462.0
+offset_bottom = 42.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
+position = Vector2(231, 21)
+shape = SubResource("RectangleShape2D_7rppu")

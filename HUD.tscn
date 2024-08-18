@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbv3677i20gt7"]
+
+[ext_resource type="Texture2D" uid="uid://d0u8mqqghoty8" path="res://ImageRaw/HUD.png" id="1_g67yw"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -136.0
+offset_right = -570.0
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(4, 4)
+texture = ExtResource("1_g67yw")
