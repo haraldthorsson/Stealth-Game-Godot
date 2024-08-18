@@ -1,12 +1,30 @@
-[gd_scene load_steps=7 format=3 uid="uid://3ouviaknax55"]
+[gd_scene load_steps=11 format=3 uid="uid://3ouviaknax55"]
 
 [ext_resource type="PackedScene" uid="uid://bje36scdtl5go" path="res://player.tscn" id="1_75ld5"]
 [ext_resource type="PackedScene" uid="uid://cqrjje2v8wjoa" path="res://testMap.tscn" id="2_v3ke0"]
 [ext_resource type="PackedScene" uid="uid://dbv3677i20gt7" path="res://HUD.tscn" id="3_knnf8"]
 [ext_resource type="Script" path="res://CanvasLayer.gd" id="4_albpr"]
 
+[sub_resource type="Curve" id="Curve_unbpu"]
+_data = [Vector2(0, 0.010989), 0.0, 0.989011, 0, 1, Vector2(1, 1), 0.989011, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_4utdp"]
+_data = [Vector2(0, 0.032967), 0.0, 0.967033, 0, 1, Vector2(1, 1), 0.967033, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_m1cqe"]
+_data = [Vector2(0, 0.142857), 0.0, 0.857143, 0, 1, Vector2(1, 1), 0.857143, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_goo7n"]
+curve_x = SubResource("Curve_unbpu")
+curve_y = SubResource("Curve_4utdp")
+curve_z = SubResource("Curve_m1cqe")
+
 [sub_resource type="Environment" id="Environment_6lhwi"]
 background_mode = 3
+tonemap_mode = 3
 ssr_fade_in = 6.27667e-05
 ssr_fade_out = 10.5561
 ssr_depth_tolerance = 108.01
@@ -18,10 +36,10 @@ glow_enabled = true
 glow_levels/4 = 1.0
 glow_strength = 1.05
 glow_blend_mode = 1
+glow_hdr_threshold = 0.49
 glow_hdr_luminance_cap = 256.0
-adjustment_brightness = 0.66
-adjustment_contrast = 4.2
-adjustment_saturation = 0.01
+adjustment_enabled = true
+adjustment_color_correction = SubResource("CurveXYZTexture_goo7n")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_rl4e1"]
 viewport_path = NodePath("PixelPerfectLayer/SubViewport")
@@ -43,11 +61,11 @@ rotation = -1.5708
 
 [node name="HUD" parent="." instance=ExtResource("3_knnf8")]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_6lhwi")
-
 [node name="MainCamera" type="Camera2D" parent="."]
 anchor_mode = 0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6lhwi")
 
 [node name="PixelPerfectLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("main_camera", "pp_camera")]
 script = ExtResource("4_albpr")

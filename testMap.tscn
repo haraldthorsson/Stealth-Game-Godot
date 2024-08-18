@@ -1,7 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqrjje2v8wjoa"]
+[gd_scene load_steps=4 format=3 uid="uid://cqrjje2v8wjoa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7rppu"]
 size = Vector2(462, 42)
+
+[sub_resource type="Gradient" id="Gradient_c4452"]
+offsets = PackedFloat32Array(0, 0.720779)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v338r"]
+gradient = SubResource("Gradient_c4452")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Node2D" type="Node2D"]
 z_index = 2
@@ -94,3 +103,25 @@ offset_bottom = 42.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
 position = Vector2(231, 21)
 shape = SubResource("RectangleShape2D_7rppu")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(339, 94)
+energy = 0.71
+blend_mode = 1
+
+[node name="PointLight2D" type="PointLight2D" parent="DirectionalLight2D"]
+position = Vector2(303, 25)
+scale = Vector2(4.88281, 4.83594)
+texture = SubResource("GradientTexture2D_v338r")
+
+[node name="PointLight2D2" type="PointLight2D" parent="DirectionalLight2D"]
+position = Vector2(-228, 82)
+scale = Vector2(4.88281, 4.83594)
+color = Color(0.809063, 0.218741, 0.310036, 1)
+texture = SubResource("GradientTexture2D_v338r")
+
+[node name="PointLight2D3" type="PointLight2D" parent="DirectionalLight2D"]
+position = Vector2(191, 379)
+scale = Vector2(4.88281, 4.83594)
+color = Color(0.432291, 0.507601, 0.362074, 1)
+texture = SubResource("GradientTexture2D_v338r")
